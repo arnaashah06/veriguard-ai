@@ -24,8 +24,9 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 BACKEND_DIR = os.path.join(ROOT_DIR, "backend")
 FRONTEND_DIR = os.path.join(ROOT_DIR, "frontend")
 VENV_PYTHON = os.path.join(BACKEND_DIR, "venv", "Scripts", "python.exe")
-
-# Fallback for systems where python is global
+if not os.path.isfile(VENV_PYTHON):
+    # macOS / Linux virtualenv python binary
+    VENV_PYTHON = os.path.join(BACKEND_DIR, "venv", "bin", "python")
 if not os.path.isfile(VENV_PYTHON):
     VENV_PYTHON = sys.executable
 

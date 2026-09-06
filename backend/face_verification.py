@@ -26,12 +26,20 @@ if sys.platform == "win32":
 # from global Python or without manually activating the virtualenv.
 # -----------------------------------------------------------------------------
 _here = os.path.dirname(os.path.abspath(__file__))
+import glob
+
 _candidate_sites = [
     os.path.join(_here, "venv", "Lib", "site-packages"),
     os.path.join(_here, "..", "backend", "venv", "Lib", "site-packages"),
     os.path.join(os.path.dirname(_here), "backend", "venv", "Lib", "site-packages"),
-    r"C:\Users\pc\Desktop\veriguard-ai\backend\venv\Lib\site-packages",
 ]
+# Add macOS/Linux site-packages (venv/lib/python3.x/site-packages)
+for _pattern in [
+    os.path.join(_here, "venv", "lib", "python*", "site-packages"),
+    os.path.join(_here, "..", "backend", "venv", "lib", "python*", "site-packages"),
+]:
+    _candidate_sites.extend(glob.glob(_pattern))
+
 for _site in _candidate_sites:
     if os.path.isdir(_site) and _site not in sys.path:
         sys.path.insert(0, _site)

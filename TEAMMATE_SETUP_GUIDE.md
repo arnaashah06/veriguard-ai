@@ -49,9 +49,43 @@ Keep everything else! Specifically ensure:
 
 ## 💻 3. Setting Up on a Teammate's Laptop (3-Minute Setup)
 
-When a teammate copies or clones the project onto their laptop for the first time, have them follow these **3 simple steps**:
+### 🍎 For macOS (MacBook / Mac mini / iMac)
 
-### Step 1: Ensure Prerequisites are Installed (One-time)
+#### Step 1: Install Prerequisites via Homebrew
+Open Terminal on your Mac and run:
+```bash
+# 1. Install Homebrew (if not already installed)
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# 2. Install Python & Tesseract OCR
+brew install python tesseract
+```
+*(Optional: If you want to modify React frontend code, run `brew install node`).*
+
+#### Step 2: Clone & Run the Automated Mac Setup
+```bash
+# Clone the repository
+git clone https://github.com/arnaashah06/veriguard-ai.git
+cd veriguard-ai
+
+# Make setup script executable and run it
+chmod +x setup_environment.sh start_veriguard.sh
+./setup_environment.sh
+```
+This automatically sets up the Python virtual environment (`backend/venv`), installs packages, generates synthetic demo documents, and runs the 18-point verification self-test.
+
+#### Step 3: Launch VeriGuard AI on Mac
+```bash
+./start_veriguard.sh
+# or: python3 run_app.py
+```
+Your default browser will automatically launch and open `http://localhost:8000`!
+
+---
+
+### 🪟 For Windows
+
+#### Step 1: Ensure Prerequisites are Installed (One-time)
 1. **Python 3.10, 3.11, 3.12, or 3.13**:
    - Download from: [https://www.python.org/downloads/](https://www.python.org/downloads/)
    - > [!IMPORTANT]
@@ -63,28 +97,15 @@ When a teammate copies or clones the project onto their laptop for the first tim
    - Run the installer and keep the default install path (`C:\Program Files\Tesseract-OCR`).
 3. **Node.js (Optional)**:
    - *Not strictly required!* VeriGuard AI features a **High-Performance Standalone Mode** where Python alone serves both the React Web App and API on `http://localhost:8000`.
-   - If they wish to do live frontend development with Hot Reloading, install Node.js LTS from [https://nodejs.org](https://nodejs.org).
 
----
-
-### Step 2: Run the Automated Setup Script
+#### Step 2: Run the Automated Setup Script
 In the extracted `veriguard-ai/` folder, double-click:
 👉 **`setup_environment.bat`**
 
-This automated script will:
-- ✅ Check Python and system path configuration.
-- ✅ Create an isolated Python virtual environment (`backend\venv`).
-- ✅ Install all required libraries (`fastapi`, `uvicorn`, `pillow`, `pytesseract`, `pydantic`, etc.).
-- ✅ Detect Tesseract OCR.
-- ✅ Programmatically generate all 7 demo assets (`demo_aadhaar_clean.png`, etc.).
-- ✅ Execute the automated self-test (18/18 test cases) to guarantee 100% functionality.
-
----
-
-### Step 3: Launch the App & Create Desktop Icon
-1. Double-click **`create_desktop_shortcut.bat`** to place the **"VeriGuard AI"** icon on their desktop.
-2. Double-click **`VeriGuard-AI.bat`** (or the new Desktop icon) anytime to launch!
-3. Their browser will automatically open to the dashboard.
+#### Step 3: Launch the App & Create Desktop Icon
+1. Double-click **`create_desktop_shortcut.bat`** to place the **"VeriGuard AI"** icon on the Windows desktop.
+2. Double-click **`VeriGuard-AI.bat`** (or the Desktop icon) anytime to launch!
+3. The browser will automatically open to `http://localhost:8000`.
 
 ---
 

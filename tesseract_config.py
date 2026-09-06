@@ -9,6 +9,9 @@ import shutil
 CANDIDATE_PATHS = [
     os.environ.get("TESSERACT_PATH", ""),
     os.environ.get("TESSERACT_CMD", ""),
+    "/opt/homebrew/bin/tesseract",       # Apple Silicon Mac (Homebrew)
+    "/usr/local/bin/tesseract",          # Intel Mac (Homebrew)
+    "/usr/bin/tesseract",                # Linux / Unix
     r"C:\Program Files\Tesseract-OCR\tesseract.exe",
     r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
     os.path.join(os.environ.get("LOCALAPPDATA", ""), "Programs", "Tesseract-OCR", "tesseract.exe"),

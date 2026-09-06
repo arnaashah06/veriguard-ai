@@ -24,6 +24,9 @@ if sys.platform == "win32":
 # ==========================================
 
 TESSERACT_CANDIDATE_PATHS = [
+    "/opt/homebrew/bin/tesseract",       # Apple Silicon Mac (Homebrew)
+    "/usr/local/bin/tesseract",          # Intel Mac (Homebrew)
+    "/usr/bin/tesseract",                # Linux / Unix
     r"C:\Program Files\Tesseract-OCR\tesseract.exe",
     r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
 ]
