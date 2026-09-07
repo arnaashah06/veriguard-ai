@@ -1,0 +1,40 @@
+# VeriGuard AI - Production Docker Compose Stack
+# Implements DPDP Act 2023 compliant ephemeral in-memory storage (tmpfs)
+version: "3.8"
+
+services:
+  veriguard-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: veriguard-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - VERIGUARD_JWT_SECRET=veriguard-ai-sih2026-enterprise-jwt-secret-key-32b
+      - ENVIRONMENT=production
+    # In-Memory Ephemeral Storage (Guarantees zero persistent PII retention on physical disk)
+    tmpfs:
+      - /app/temp:size=256M,mode=1777
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1536M
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/health"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - veriguard-network
+
+networks:
+  veriguard-network:
+    driver: bridge

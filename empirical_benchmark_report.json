@@ -1,0 +1,54 @@
+{
+  "statutory_rules": {
+    "min": 0.29,
+    "mean": 0.41,
+    "p50": 0.34,
+    "p90": 0.59,
+    "p95": 0.65,
+    "p99": 1.05,
+    "max": 6.87
+  },
+  "cross_document_reconciliation": {
+    "min": 1.19,
+    "mean": 1.86,
+    "p50": 1.28,
+    "p90": 2.35,
+    "p95": 2.59,
+    "p99": 3.74,
+    "max": 49.2
+  },
+  "biometric_face_verification": {
+    "min": 2769.5,
+    "mean": 2942.01,
+    "p50": 2804.33,
+    "p90": 3209.77,
+    "p95": 3250.39,
+    "p99": 3250.39,
+    "max": 3250.39
+  },
+  "tesseract_ocr": {
+    "min": 1612.55,
+    "mean": 1747.62,
+    "p50": 1632.44,
+    "p90": 2685.12,
+    "p95": 2685.12,
+    "p99": 2685.12,
+    "max": 2685.12
+  },
+  "audit_trail_sealing": {
+    "min": 0.04,
+    "mean": 0.05,
+    "p50": 0.05,
+    "p90": 0.05,
+    "p95": 0.05,
+    "p99": 0.09,
+    "max": 0.27
+  },
+  "peak_ram_allocated_mb": 9.38,
+  "pipeline_total_estimated": {
+    "mean_ms": 4691.95,
+    "p95_ms": 5938.8,
+    "mean_seconds": 4.692,
+    "p95_seconds": 5.939
+  }
+}

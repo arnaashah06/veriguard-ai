@@ -157,6 +157,19 @@ def extract_text_from_image(image_path):
             except Exception:
                 pass
 
+        # Pass 4 fallback: If text is under-extracted, run homography de-skewing and glare attenuation
+        if len(text) < 40:
+            try:
+                from image_enhancement import enhance_document_image
+                enhanced_arr, meta = enhance_document_image(image_path)
+                if meta.get("perspective_deskewed") or meta.get("glare_detected") or meta.get("orientation_adjusted"):
+                    enhanced_pil = Image.fromarray(cv2.cvtColor(enhanced_arr, cv2.COLOR_BGR2RGB))
+                    deskewed_text = pytesseract.image_to_string(enhanced_pil, lang="eng", config="--oem 3 --psm 3").strip()
+                    if len(deskewed_text) > len(text):
+                        text = deskewed_text
+            except Exception:
+                pass
+
         print(f"[+] OCR extracted {len(text)} characters")
         return text
 
