@@ -942,17 +942,95 @@ The backend is implemented with FastAPI and CPython 3.13, orchestrating parallel
   </div>
 </div>
 
-<!-- forensics.py & ocr.py -->
+<!-- forensics.py, ocr.py, generate_demo_assets.py -->
 <div class="file-card">
   <div class="file-card-header">
-    <span class="file-card-title">forensics.py & ocr.py</span>
-    <span class="file-card-meta">forensics.py (954 B), ocr.py (7.4 KB) | Ancillary Modules</span>
+    <span class="file-card-title">forensics.py, ocr.py, generate_demo_assets.py</span>
+    <span class="file-card-meta">forensics (954 B), ocr (7.4 KB), demo gen (7.1 KB)</span>
   </div>
-  <div class="file-card-purpose">Error Level Analysis (ELA) & Legacy OCR Routing Abstraction</div>
+  <div class="file-card-purpose">Error Level Analysis, Legacy Routing & Photorealistic Synthetic Demo Generator</div>
   <div class="file-card-logic">
-    <strong>Architecture & Responsibilities:</strong> <code>forensics.py</code> executes Error Level Analysis by recompressing document scans at 90% JPEG quality to highlight localized compression deltas. <code>ocr.py</code> provides a backward-compatible routing abstraction redirecting legacy calls to Tesseract preprocessing pipelines.
+    <code>forensics.py</code> executes ELA by recompressing document scans at 90% JPEG quality to highlight localized compression deltas. <code>ocr.py</code> provides backward-compatible routing abstraction. <code>generate_demo_assets.py</code> uses PIL (Pillow) to draw high-resolution, photorealistic synthetic demo credentials (clean Aadhaar, counterfeit Aadhaar with bad check digit, clean PAN, Person A Aadhaar, Person B PAN) used for 1-click frontend demonstrations.
   </div>
 </div>
+
+<!-- tesseract_config.py, tesseract_setup.py, test.py -->
+<div class="file-card">
+  <div class="file-card-header">
+    <span class="file-card-title">tesseract_config.py, tesseract_setup.py, test.py</span>
+    <span class="file-card-meta">Configuration & Diagnostic Utilities</span>
+  </div>
+  <div class="file-card-purpose">Automated Binary Path Discovery, Environment Diagnostics & Import Smoke Tests</div>
+  <div class="file-card-logic">
+    <code>tesseract_config.py</code> automatically scans default Windows installation locations (<code>C:\\Program Files\\Tesseract-OCR\\tesseract.exe</code>) and maps <code>pytesseract.tesseract_cmd</code> dynamically. <code>tesseract_setup.py</code> runs binary version checks and troubleshooting diagnostics. <code>test.py</code> executes lightweight import smoke tests.
+  </div>
+</div>
+
+<!-- __pycache__ Bytecode Compilation Table -->
+<h2>6.1 Python 3.13 Bytecode Compilation Architecture (backend/__pycache__/)</h2>
+<p>
+CPython 3.13 compiles Python source code into optimized bytecode (.pyc) stored in <code>__pycache__/</code> to minimize cold-start latency and avoid repeated syntax parsing:
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Compiled Bytecode (.pyc)</th>
+      <th>Source Module</th>
+      <th>Compiled Size</th>
+      <th>Execution Benefit & Cached AST Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>main.cpython-313.pyc</code></td>
+      <td><code>backend/main.py</code></td>
+      <td>30.1 KB</td>
+      <td>Pre-compiled FastAPI routing tables, request dependencies, and middleware hooks.</td>
+    </tr>
+    <tr>
+      <td><code>validators.cpython-313.pyc</code></td>
+      <td><code>backend/validators.py</code></td>
+      <td>39.8 KB</td>
+      <td>Cached Verhoeff D5 permutations, 37 state RTO tables, and ICAO 9303 regex constants.</td>
+    </tr>
+    <tr>
+      <td><code>cross_document.cpython-313.pyc</code></td>
+      <td><code>backend/cross_document.py</code></td>
+      <td>25.1 KB</td>
+      <td>Pre-compiled pairwise reconciliation loops, tokenizers, and Sec 139AA linkage trees.</td>
+    </tr>
+    <tr>
+      <td><code>face_verification.cpython-313.pyc</code></td>
+      <td><code>backend/face_verification.py</code></td>
+      <td>19.7 KB</td>
+      <td>Pre-parsed HOG/CLAHE fallbacks and calibrated Euclidean mapping polynomials.</td>
+    </tr>
+    <tr>
+      <td><code>ocr_tesseract.cpython-313.pyc</code></td>
+      <td><code>backend/ocr_tesseract.py</code></td>
+      <td>23.9 KB</td>
+      <td>Pre-compiled PSM 3/6 configurations and demographic regex pattern matchers.</td>
+    </tr>
+    <tr>
+      <td><code>why_flagged.cpython-313.pyc</code></td>
+      <td><code>backend/why_flagged.py</code></td>
+      <td>11.9 KB</td>
+      <td>Pre-compiled 4-domain risk decomposition rules and 3-tier officer queue tables.</td>
+    </tr>
+    <tr>
+      <td><code>identity_story.cpython-313.pyc</code></td>
+      <td><code>backend/identity_story.py</code></td>
+      <td>12.5 KB</td>
+      <td>Pre-compiled natural language story templates and conditional narrative formatters.</td>
+    </tr>
+    <tr>
+      <td><code>audit_trail.cpython-313.pyc</code></td>
+      <td><code>backend/audit_trail.py</code></td>
+      <td>4.9 KB</td>
+      <td>Pre-compiled SHA-256 monotonic chaining routines and ISO timestamp encoders.</td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- ========================================================================= -->
 <!-- SECTION 7: AUTOMATED TEST SUITES GUIDE -->
@@ -1033,6 +1111,12 @@ The repository features 10 automated test suites verifying end-to-end reliabilit
       <td>Error Level Analysis delta matrix generation, JPEG recompression variance, and tampering suspicion flags.</td>
       <td><span class="badge badge-pass">ALL PASS</span></td>
     </tr>
+    <tr>
+      <td><code>test_opencv_face.py</code></td>
+      <td>Vision Fallbacks</td>
+      <td>OpenCV matrix conversions, CLAHE adaptive equalization, and Laplacian variance calculations.</td>
+      <td><span class="badge badge-pass">ALL PASS</span></td>
+    </tr>
   </tbody>
 </table>
 
@@ -1103,15 +1187,27 @@ The frontend is built with React 19 and Vite v8.2.2, implementing a cybernetic g
   </div>
 </div>
 
-<!-- Core Frontend Utilities -->
+<!-- App.css -->
 <div class="file-card">
   <div class="file-card-header">
-    <span class="file-card-title">src/App.jsx, src/api/verification.js, src/utils/imageQuality.js</span>
-    <span class="file-card-meta">Core Controllers & Utilities</span>
+    <span class="file-card-title">src/App.css & src/index.css</span>
+    <span class="file-card-meta">40.9 KB (1,200+ lines) | Master Glassmorphic Stylesheet</span>
   </div>
-  <div class="file-card-purpose">Master State Machine, HTTP Multipart Client & Client-Side Image Pre-Flight Guards</div>
+  <div class="file-card-purpose">Cybernetic Glassmorphic Design System, Typography & Micro-Animations</div>
   <div class="file-card-logic">
-    <code>App.jsx</code> manages the application state machine across screen transitions (<code>upload</code> &rarr; <code>processing</code> &rarr; <code>results</code>). <code>api/verification.js</code> handles multipart HTTP requests, base URL proxying, and error interception. <code>utils/imageQuality.js</code> executes client-side canvas analysis measuring brightness, exposure, and aspect ratios before transmission.
+    <strong>Design Tokens & Components:</strong> Zero Tailwind dependencies; hand-crafted Dark Glassmorphic styling (<code>rgba(15, 23, 42, 0.75)</code>, <code>backdrop-filter: blur(16px)</code>), curated HSL color tokens (Cyber Cyan <code>#06B6D4</code>, Emerald <code>#10B981</code>, Amber <code>#F59E0B</code>, Crimson <code>#EF4444</code>), fluid responsive Grid/Flexbox breakpoints, hardware-accelerated radar/laser keyframe animations, and custom scrollbar styling.
+  </div>
+</div>
+
+<!-- Core Frontend Utilities & Components -->
+<div class="file-card">
+  <div class="file-card-header">
+    <span class="file-card-title">src/App.jsx, src/components/Layout/TopBar.jsx, src/api/verification.js, src/utils/imageQuality.js</span>
+    <span class="file-card-meta">Core Controllers & Layout Components</span>
+  </div>
+  <div class="file-card-purpose">State Machine, Navigation Bar, HTTP Multipart Client & Client-Side Image Pre-Flight Guards</div>
+  <div class="file-card-logic">
+    <code>App.jsx</code> coordinates application state transitions and scenario loading. <code>TopBar.jsx</code> renders the shield branding, LIVE engine status indicator, and officer credentials. <code>api/verification.js</code> handles multipart HTTP requests and proxy routing to FastAPI (port 8000). <code>utils/imageQuality.js</code> executes client-side canvas analysis measuring brightness, exposure, and aspect ratios before upload.
   </div>
 </div>
 
@@ -1189,6 +1285,11 @@ The frontend is built with React 19 and Vite v8.2.2, implementing a cybernetic g
       <td>Biometric Imposter Attack</td>
       <td>Disparate subject portrait; triggers imposter face mismatch (&lt;30% similarity, +25 penalty).</td>
     </tr>
+    <tr>
+      <td><code>favicon.svg & icons.svg</code></td>
+      <td>Branding Icons</td>
+      <td>Scalable vector graphics used across the browser tab and cybernetic UI status panels.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1198,9 +1299,20 @@ The frontend is built with React 19 and Vite v8.2.2, implementing a cybernetic g
 </div>
 
 <!-- ========================================================================= -->
-<!-- SECTION 10: CONTAINERIZATION, DEPLOYMENT & VIRTUAL ENVIRONMENT -->
+<!-- SECTION 10: CROSS-PLATFORM SETUP, CONTAINERIZATION & ENVIRONMENT -->
 <!-- ========================================================================= -->
-<h2>10. Containerization, Deployment Stack & Virtual Environment</h2>
+<h2>10. Cross-Platform Developer Setup & Containerization</h2>
+
+<div class="file-card">
+  <div class="file-card-header">
+    <span class="file-card-title">TEAMMATE_SETUP_GUIDE.md</span>
+    <span class="file-card-meta">Cross-Platform Onboarding Blueprint</span>
+  </div>
+  <div class="file-card-purpose">Automated Windows & macOS Developer Environment Setup</div>
+  <div class="file-card-logic">
+    Covers end-to-end multi-platform startup: Python 3.13 venv initialization, Tesseract-OCR installation and dynamic path configuration, Node.js v20+ setup, Vite dev server launching (port 5173), FastAPI Uvicorn ASGI launch (port 8000), and automated verification commands. Features automated build scripts for Windows (<code>build_presentation.ps1</code>) and cross-platform Node.js (<code>build_presentation.js</code>).
+  </div>
+</div>
 
 <div class="file-card">
   <div class="file-card-header">
@@ -1345,6 +1457,52 @@ backend\\venv\\Scripts\\python.exe backend/test_edge_cases.py
 # 9. Verify Frontend Code Quality & Production Build
 npm --prefix frontend run lint ; npm --prefix frontend run build
 </div>
+
+<!-- ========================================================================= -->
+<!-- APPENDIX: TEAM CREDENTIALS -->
+<!-- ========================================================================= -->
+<h2>Appendix: Team Credentials & Hackathon Registration</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Member Name</th>
+      <th>Role</th>
+      <th>Department & Focus Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Arnaa Shah</strong></td>
+      <td>Team Leader</td>
+      <td>System Architecture, Fast-API Orchestration, Cross-Document Intelligence</td>
+    </tr>
+    <tr>
+      <td><strong>Rushabh Khatri</strong></td>
+      <td>Core Developer</td>
+      <td>Computer Vision, Pre-OCR Homography Rectification & Glare Attenuation</td>
+    </tr>
+    <tr>
+      <td><strong>Krutika Barewadia</strong></td>
+      <td>Core Developer</td>
+      <td>Deep Facial Biometrics (128D ResNet), HOG & CLAHE Contrast Fallbacks</td>
+    </tr>
+    <tr>
+      <td><strong>Meet Jariwala</strong></td>
+      <td>Core Developer</td>
+      <td>Cryptographic Security, Offline UIDAI RSA-2048 QR Verification & Audit Sealing</td>
+    </tr>
+    <tr>
+      <td><strong>Yashvi Parmar</strong></td>
+      <td>Core Developer</td>
+      <td>Frontend Architecture, Cybernetic Glassmorphic UI & Scanning Telemetry HUD</td>
+    </tr>
+    <tr>
+      <td><strong>Jay Petigara</strong></td>
+      <td>Core Developer</td>
+      <td>Statutory Indian Document Validation (Verhoeff D5, PAN, ICAO 9303 MRZ)</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="doc-footer">
   <div>VeriGuard AI &copy; 2026 | Team Abstract_Minds (SIH2026-T2851)</div>
