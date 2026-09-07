@@ -167,22 +167,26 @@ def create_presentation():
         ("Theme", "Smart Automation & Cyber Security", PURPLE),
         ("PS Category", "Software", DARK_BLUE),
         ("Team ID", "SIH2026-T2851", DARK_TEXT),
-        ("Team Name (Registered)", "Abstract_Minds", PURPLE)
+        ("Team Name (Registered)", "Abstract_Minds", PURPLE),
+        ("Technical Report", "https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md", PRIMARY_BLUE)
     ]
     for idx, (label, val, col) in enumerate(meta_items):
         p = tf.paragraphs[0] if idx == 0 else tf.add_paragraph()
-        p.space_after = Pt(4)
+        p.space_after = Pt(3)
         run1 = p.add_run()
         run1.text = f"{label} – "
-        run1.font.size = Pt(11)
+        run1.font.size = Pt(10)
         run1.font.bold = True
         run1.font.color.rgb = DARK_TEXT
 
         run2 = p.add_run()
         run2.text = val
-        run2.font.size = Pt(11)
+        run2.font.size = Pt(9.5 if "http" in val else 10)
         run2.font.bold = True
         run2.font.color.rgb = col
+        if "http" in val:
+            run2.hyperlink.address = val
+            run2.font.underline = True
 
     # Team Members Table
     table_shape = s1.shapes.add_table(7, 3, Inches(0.5), Inches(4.25), Inches(7.2), Inches(2.6))
@@ -775,7 +779,10 @@ def create_presentation():
         run = p.add_run()
         run.text = desc
         run.font.bold = False
-        run.font.color.rgb = DARK_TEXT
+        run.font.color.rgb = PRIMARY_BLUE if desc.startswith("http") else DARK_TEXT
+        if desc.startswith("http"):
+            run.hyperlink.address = desc
+            run.font.underline = True
         p.space_after = Pt(6)
 
     # SIH Ready Box inside Col 3

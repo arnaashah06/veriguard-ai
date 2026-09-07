@@ -429,6 +429,10 @@ html_content = f"""<!DOCTYPE html>
           <div class="s1-meta-label">Team Name (Registered) –</div>
           <div class="s1-meta-val"><strong style="color: #5B21B6; font-size: 13pt;">Abstract_Minds</strong></div>
         </div>
+        <div class="s1-meta-row">
+          <div class="s1-meta-label">Technical Report –</div>
+          <div class="s1-meta-val"><a href="https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md" style="color: #0070C0; font-weight: 800; text-decoration: underline; font-size: 9.5pt; word-break: break-all;">https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md</a></div>
+        </div>
       </div>
 
       <!-- Team Members & Roles Table -->
@@ -502,6 +506,10 @@ html_content = f"""<!DOCTYPE html>
         <span class="badge badge-blue">✔ PAN Sec 139AA</span>
         <span class="badge badge-purple">✔ 128D ResNet Biometrics</span>
         <span class="badge badge-amber">✔ ELA Forensics</span>
+      </div>
+
+      <div style="margin-top: 10px; text-align: center;">
+        <a href="https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md" style="display: inline-block; padding: 5px 14px; background: #EFF6FF; border: 1.5px solid #0070C0; border-radius: 6px; color: #0070C0; font-weight: 800; font-size: 8.5pt; text-decoration: none;">📄 GitHub Technical Report: technical_report.md</a>
       </div>
     </div>
   </div>

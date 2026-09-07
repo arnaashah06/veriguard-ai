@@ -317,7 +317,8 @@ html_template = """<!DOCTYPE html>
     <div class="doc-subtitle">Master System Architecture, Codebase Notes & Verification Dossier</div>
     <div class="doc-meta">
       <strong>Smart India Hackathon 2026</strong> | Problem Statement: <code>SIH26188</code> | Team: <strong>Abstract_Minds (SIH2026-T2851)</strong><br>
-      Repository: <code>https://github.com/arnaashah06/veriguard-ai</code> | Official Final Notes Edition
+      Repository: <code>https://github.com/arnaashah06/veriguard-ai</code><br>
+      Technical Report: <a href="https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md" style="color: #0070C0; font-weight: 700; text-decoration: underline;">https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md</a> | Official Final Notes Edition
     </div>
   </div>
   <div>
@@ -1357,7 +1358,7 @@ The official submission deck (<code>docs/VeriGuard_AI_SIH2026_Submission.pptx</c
     <tr>
       <td><strong>Slide 1</strong></td>
       <td><strong>Title & Credentials</strong></td>
-      <td>Project Title: VeriGuard AI; Problem Statement ID: SIH26188; Team ID: SIH2026-T2851; Team Name: Abstract_Minds; Official SIH Logo, Brain Bulb Emblem, and Team Member Directory.</td>
+      <td>Project Title: VeriGuard AI; Problem Statement ID: SIH26188; Team ID: SIH2026-T2851; Team Name: Abstract_Minds; Official SIH Logo, Brain Bulb Emblem, Team Member Directory, and Integrated GitHub Technical Report Hyperlink (<a href="https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md" style="color: #0070C0; font-weight: 700;">technical_report.md</a>).</td>
     </tr>
     <tr>
       <td><strong>Slide 2</strong></td>
@@ -1382,7 +1383,7 @@ The official submission deck (<code>docs/VeriGuard_AI_SIH2026_Submission.pptx</c
     <tr>
       <td><strong>Slide 6</strong></td>
       <td><strong>Research & References</strong></td>
-      <td>Statutory Compliance Framework (IT Act Sec 65B, Income-tax Sec 139AA, Aadhaar Act 2016, DPDP Act 2023) and Complete 6-Row Prototype Limitations & Engineering Mitigations Matrix.</td>
+      <td>Statutory Compliance Framework (IT Act Sec 65B, Income-tax Sec 139AA, Aadhaar Act 2016, DPDP Act 2023), Complete 6-Row Prototype Limitations & Engineering Mitigations Matrix, and Prominent Live Hyperlink to GitHub Technical Report (<a href="https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md" style="color: #0070C0; font-weight: 700;">technical_report.md</a>).</td>
     </tr>
   </tbody>
 </table>
@@ -1390,7 +1391,7 @@ The official submission deck (<code>docs/VeriGuard_AI_SIH2026_Submission.pptx</c
 <!-- ========================================================================= -->
 <!-- SECTION 12: DOCUMENTATION REPOSITORY & COMMANDS REFERENCE -->
 <!-- ========================================================================= -->
-<h2>12. Consolidated Documentation Directory (docs/)</h2>
+<h2>12. Consolidated Documentation Directory (docs/ & Repository)</h2>
 <table>
   <thead>
     <tr>
@@ -1403,32 +1404,110 @@ The official submission deck (<code>docs/VeriGuard_AI_SIH2026_Submission.pptx</c
     <tr>
       <td><code>docs/VeriGuard_AI_SIH2026_Submission.pptx</code></td>
       <td>PowerPoint (.pptx) | ~117 KB</td>
-      <td>Editable native PowerPoint deck matching official SIH template with live mitigation screenshot.</td>
+      <td>Editable native PowerPoint deck matching official SIH template with live mitigation screenshot and integrated clickable GitHub report links on Slides 1 & 6.</td>
     </tr>
     <tr>
       <td><code>docs/VeriGuard_AI_SIH2026_Submission.pdf</code></td>
-      <td>Vector PDF (.pdf) | ~801 KB</td>
-      <td>Widescreen 16:9 6-page presentation compiled via Microsoft Edge headless.</td>
+      <td>Vector PDF (.pdf) | ~809 KB</td>
+      <td>Widescreen 16:9 6-page presentation compiled via Microsoft Edge headless with interactive hyperlinks to GitHub technical report.</td>
     </tr>
     <tr>
       <td><code>docs/VeriGuard_AI_Technical_Report.pdf</code></td>
       <td>Technical PDF (.pdf) | ~182 KB</td>
-      <td>Comprehensive 4-page formal technical architecture report with empirical benchmark tables.</td>
+      <td>Comprehensive 4-page formal technical architecture report with empirical benchmark tables and statutory citations.</td>
     </tr>
     <tr>
-      <td><code>docs/VeriGuard_AI_Master_Walkthrough.pdf</code></td>
-      <td>Walkthrough PDF (.pdf) | ~64 KB</td>
-      <td>Complete ASCII/system walkthrough blueprint detailing architecture, updates, and matrices.</td>
+      <td><code>technical_report.md</code></td>
+      <td>Markdown Source (.md)</td>
+      <td>Live GitHub Technical Report: <a href="https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md" style="color: #0070C0; font-weight: 700;">https://github.com/arnaashah06/veriguard-ai/blob/main/technical_report.md</a></td>
     </tr>
     <tr>
       <td><code>docs/veriguard-ai final notes.pdf</code></td>
       <td>Master PDF (.pdf)</td>
-      <td>The master consolidated document containing all notes, codebase references, and reports.</td>
+      <td>The master consolidated dossier containing all notes, codebase references, empirical benchmarks, and architectural blueprints.</td>
     </tr>
   </tbody>
 </table>
 
-<h2>13. Terminal Verification Commands Quick Reference</h2>
+<!-- ========================================================================= -->
+<!-- SECTION 13: ONGOING LIMITATIONS & PRODUCTION ROADMAP -->
+<!-- ========================================================================= -->
+<div class="page-break"></div>
+<h2>13. Ongoing Limitations, Technical Boundaries & Production Roadmap</h2>
+<p>
+While VeriGuard AI provides industry-leading offline verification, multi-layer tampering detection, and demographic reconciliation, strict engineering rigor requires full transparency regarding operational limitations still present in the current prototype:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 22%;">Limitation Domain</th>
+      <th style="width: 38%;">Current Technical Boundary in Prototype</th>
+      <th style="width: 40%;">Enterprise Production Resolution Roadmap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1. Live Government Authority Database Access</strong></td>
+      <td>
+        The prototype does <em>not</em> connect directly to live government registries (UIDAI CIDR, NSDL/UTIITSL, MoRTH Parivahan). Offline RSA-2048 QR verification proves document integrity when issued, but cannot detect post-issuance status changes (e.g. cancelled/suspended Aadhaar or deactivated PAN).
+      </td>
+      <td>
+        Integrate licensed AUA/KUA (Aadhaar User Agency) / ASA gateway protocols, NSDL PAN Verification API, and MoRTH Sarathi API endpoints via signed mTLS certificates for real-time revocation and status checks.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>2. Biometric Liveness & Anti-Spoofing (PAD)</strong></td>
+      <td>
+        The 128D ResNet dlib biometric engine compares facial embeddings between selfie and document portrait, but lacks active challenge-response (blink, head turn, smile) or passive 3D texture/depth analysis (ISO/IEC 30107-3 compliant). Vulnerable to printed photo presentation or virtual camera injection.
+      </td>
+      <td>
+        Implement MediaPipe Face Mesh for Eye Aspect Ratio (EAR) blink detection, 3D head pose estimation (solvePnP yaw/pitch/roll), and an anti-spoofing Fourier texture CNN to detect screen moir&eacute; and paper specular reflections.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>3. Severely Damaged Cards & Non-Standard Layouts</strong></td>
+      <td>
+        Contour-based 4-corner homography (<code>cv2.warpPerspective</code>) requires visible card borders. Severely torn, creased, bubble-laminated cards, or cards on low-contrast backgrounds fail corner detection. Older legacy state driving licences or voter slips lack standard fonts, degrading Tesseract OCR.
+      </td>
+      <td>
+        Train and deploy a lightweight YOLOv8-Doc Oriented Bounding Box (OBB) model for robust corner segmentation under arbitrary backgrounds, complemented by fine-tuned LayoutLMv3 or PaddleOCR for irregular typography.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>4. CPU Inference Latency Bottlenecks at Scale</strong></td>
+      <td>
+        Statutory rules execute in <strong>0.34ms</strong> on CPU (~2,500 req/s), but 128D ResNet face embedding takes <strong>447.88ms</strong> and dual-pass Tesseract OCR takes <strong>1,061.34ms</strong> on CPU (~0.9 req/s per core). High-throughput concurrent enterprise deployments will bottleneck without GPU acceleration.
+      </td>
+      <td>
+        Convert deep learning models to ONNX Runtime with INT8 quantization, leverage NVIDIA TensorRT on GPU workers, and orchestrate horizontal autoscaling (HPA) behind a Triton Inference Server cluster.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>5. Regional Indic Language OCR & Transliteration</strong></td>
+      <td>
+        Indian IDs frequently print names and addresses bilingually (e.g. Hindi, Tamil, Marathi alongside English). Currently, OCR runs in English mode (<code>lang="eng"</code>). If English text is faded but Indic script is intact, the system cannot phonetically cross-transliterate names.
+      </td>
+      <td>
+        Incorporate multilingual Indic OCR models (Bhashini API or Tesseract traineddata for <code>hin</code>, <code>tam</code>, <code>mar</code>, etc.) combined with phonetic Soundex/Metaphone matching for Indic-English name reconciliation.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>6. In-Memory Key Management vs. Hardware Security Modules</strong></td>
+      <td>
+        UIDAI root public certificates and JWT private signing keys are loaded from local environment variables and memory. While secure for development and testing, this does not satisfy strict banking-grade FIPS 140-2 Level 3 HSM compliance.
+      </td>
+      <td>
+        Interface cryptographic operations with Cloud KMS (AWS KMS / Azure Key Vault / Google Cloud KMS) or dedicated on-premise PKCS#11 Hardware Security Modules (HSMs) for tamper-proof key lifecycle management.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ========================================================================= -->
+<!-- SECTION 14: TERMINAL VERIFICATION COMMANDS QUICK REFERENCE -->
+<!-- ========================================================================= -->
+<h2>14. Terminal Verification Commands Quick Reference</h2>
 <div class="code-block">
 # 1. Run the 18-case Ground-Truth Real vs. Fake Truth Table suite
 backend\\venv\\Scripts\\python.exe backend/test_real_vs_fake.py
