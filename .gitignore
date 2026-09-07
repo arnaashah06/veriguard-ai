@@ -18,10 +18,9 @@ backend/temp/
 Thumbs.db
 
 # Build scripts & temporary PDF artifacts
-build_*.py
-build_*.js
-build_*.ps1
-*.html
+temp_*.html
+temp_*.png
+
 
 # Node & Frontend
 frontend/node_modules/
